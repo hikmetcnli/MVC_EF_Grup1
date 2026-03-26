@@ -11,6 +11,9 @@ namespace MVC_EF_Grup1.Models
 
         public DbSet<Product> Products_ { get; set; }
         public DbSet<Departmant> Departmants_ { get; set; }
+        public DbSet<Arac> Aracs_ { get; set; }
+        public DbSet<Musteri> Musteris_ { get; set; }
+        public DbSet<SatinAlma> SatinAlmas_ { get; set; }
 
     }
 }

@@ -1,0 +1,35 @@
+﻿@using MVC_EF_Grup1.Models
+@model List<SatinAlma>
+
+
+<div class="col-lg-12" style="text-align:right">
+    <a href="/SatinAlma/MusteriEkle" class="btn btn-success">Müşteri Ekle</a>
+    <a href="/SatinAlma/AracEkle" class="btn btn-success">Araç Ekle</a>
+  
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Araç</th>
+            <th scope="col">Müşteri</th>
+            <th scope="col">Alım Fiyatı</th>
+            <th scope="col">Alım Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <th scope="row">@item.Arac.Marka (@item.Arac.ModelYili) </th>
+                <th scope="row">@item.Musteri.MusteriAdi @item.Musteri.MusteriSoyadi</th>
+                <th scope="row">@item.AlimFiyati</th>
+                <th scope="row">@item.AlimTarihi</th>
+            </tr>
+        }
+        
+         
+    </tbody>
+</table>
