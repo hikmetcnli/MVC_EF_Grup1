@@ -16,6 +16,8 @@ namespace MVC_EF_Grup1.Models
         public string Plaka { get; set; }
 
         public decimal Fiyat { get; set; }
+
+        public string AracResmi { get; set; }
         public ICollection<SatinAlma> SatinAlmalar { get; set; }
     }
 }

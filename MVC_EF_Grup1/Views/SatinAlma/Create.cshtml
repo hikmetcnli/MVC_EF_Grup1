@@ -1,0 +1,56 @@
+﻿@model MVC_EF_Grup1.Models.SatinAlma
+
+@{
+    ViewData["Title"] = "Satış Ekle";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white">
+            <h4>Satış / Alım Kaydı</h4>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+
+                <div class="row">
+                    <!-- Müşteri -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Müşteri</label>
+                        <select asp-for="MusteriID" class="form-control" asp-items="ViewBag.Musteriler">
+                            <option value="">-- Müşteri Seç --</option>
+                        </select>
+                    </div>
+
+                    <!-- Araç -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Araç</label>
+                        <select asp-for="AracID" class="form-control" asp-items="ViewBag.Araclar">
+                            <option value="">-- Araç Seç --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Fiyat -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="AlimFiyati" class="form-label"></label>
+                        <input asp-for="AlimFiyati" class="form-control" type="number" step="0.01" />
+                    </div>
+
+                    <!-- Tarih -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="AlimTarihi" class="form-label"></label>
+                        <input asp-for="AlimTarihi" class="form-control" type="date" />
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <a asp-action="Index" class="btn btn-secondary me-2">Geri</a>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
