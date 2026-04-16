@@ -2,7 +2,7 @@
 
 namespace MVC_EF_Grup1.Models
 {
-    public class Context: DbContext
+    public class Context : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -14,6 +14,7 @@ namespace MVC_EF_Grup1.Models
         public DbSet<Arac> Aracs_ { get; set; }
         public DbSet<Musteri> Musteris_ { get; set; }
         public DbSet<SatinAlma> SatinAlmas_ { get; set; }
+        public DbSet<User> Users_ { get; set; }
 
     }
 }

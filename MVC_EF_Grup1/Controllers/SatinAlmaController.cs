@@ -1,13 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVC_EF_Grup1.Models;
 
 namespace MVC_EF_Grup1.Controllers
 {
+    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "User")]
     public class SatinAlmaController : Controller
     {
         Context c = new Context();
+     
         public IActionResult Liste()
         {
             //Araç Sayısını bul
@@ -18,7 +22,7 @@ namespace MVC_EF_Grup1.Controllers
             var SatinAlmaListesi = c.SatinAlmas_.Include(x => x.Musteri).Include(x => x.Arac).ToList();
             return View(SatinAlmaListesi);
         }
-
+     
         public IActionResult Create()
         {
 
