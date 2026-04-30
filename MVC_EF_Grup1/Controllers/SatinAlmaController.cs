@@ -6,8 +6,8 @@ using MVC_EF_Grup1.Models;
 
 namespace MVC_EF_Grup1.Controllers
 {
-    //[Authorize(Roles = "Admin")]
-    [Authorize(Roles = "User")]
+    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "User")]
     public class SatinAlmaController : Controller
     {
         Context c = new Context();
@@ -38,7 +38,7 @@ namespace MVC_EF_Grup1.Controllers
 
             if (s.Id == 0)
             {
-                s.AlimTarihi = DateTime.Now;
+                //s.AlimTarihi = DateTime.Now;
                 c.SatinAlmas_.Add(s);
                 c.SaveChanges();
             }

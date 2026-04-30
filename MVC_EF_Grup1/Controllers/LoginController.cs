@@ -37,7 +37,7 @@ namespace MVC_EF_Grup1.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimidentity), claimproperties);
 
                  
-                return RedirectToAction("Liste", "SatinAlma");
+                return RedirectToAction("Index", "Dashboard");
             }
             else //Kullanıcı Adı veya Şifre Hatalı
             {
