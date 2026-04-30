@@ -87,8 +87,10 @@
 	<hr />
 	<div class="container mt-5">
 	<div class="row">
-
-		<canvas id="myChart2" style="max-height:220px"></canvas>
+	<div class="col-6"><canvas id="myChart2" style="max-height:220px"></canvas></div>
+	<div class="col-6"><canvas id="myChart3" style="max-height:220px"></canvas></div>
+		
+		
 
 	</div>
 	</div>
@@ -147,6 +149,12 @@
 @{
 	var SatinAlmatext = ViewBag.SatinAlmaText as List<string>;
 	var SatinAlmaValue = ViewBag.SatinAlmaValue as List<int>;
+
+	var AracMarkaText = ViewBag.AracMarkaText as List<string>;
+	var AracMarkaValue = ViewBag.AracMarkaValue as List<int>;
+
+	var MusteriText = ViewBag.MusteriText as List<string>;
+	var MusteriValue = ViewBag.MusteriValue as List<int>;
 }
 
 <script>
@@ -183,8 +191,8 @@ new Chart(ctx, {
 
 
  <script>
-const xValues22 = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues22 = [55, 49, 44, 24, 15]; 
+var xValues22 = @Html.Raw(Json.Serialize(AracMarkaText )) 
+var yValues22 = @Html.Raw(Json.Serialize(AracMarkaValue )) 
 
 const ctx2 = document.getElementById('myChart2');
 
@@ -201,7 +209,34 @@ new Chart(ctx2, {
       legend: {display:true},
       title: {
         display: true,
-        text: "Araca Göre Satın Alma Dağılımı",
+        text: "Araç Markasına Göre Satın Alma Dağılımı",
+        font: {size:16}
+      }
+    }
+  }
+});
+</script>
+
+ <script>
+var xValues33 = @Html.Raw(Json.Serialize(MusteriText )) 
+var yValues33 = @Html.Raw(Json.Serialize(MusteriValue )) 
+
+const ctx3 = document.getElementById('myChart3');
+
+new Chart(ctx3, {
+  type: "pie",
+  data: {
+    labels: xValues33,
+    datasets: [{ 
+      data: yValues33
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {display:true},
+      title: {
+        display: true,
+        text: "Müşteriye Göre Satın Alma Dağılımı",
         font: {size:16}
       }
     }
